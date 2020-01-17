@@ -6,4 +6,19 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    tools:context=".MapsActivity">
+
+    <ImageButton
+        android:id="@+id/plusButton"
+        android:layout_width="73px"
+        android:layout_height="73px"
+        android:layout_gravity="end|bottom"
+        android:layout_marginRight="20px"
+        android:layout_marginBottom="20px"
+        android:background="@null"
+        android:src="@drawable/plus1" />
+
+
+
+
+    </fragment>

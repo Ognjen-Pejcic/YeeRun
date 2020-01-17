@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //DatabaseService.getDatabaseService().makeFileWithRoutes();
+        DatabaseService.getDatabaseService().makeFileWithRoutes();
         LinkedList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
         ArrayList<String> names= new ArrayList<>();
         ArrayList<String> lengths= new ArrayList<>();

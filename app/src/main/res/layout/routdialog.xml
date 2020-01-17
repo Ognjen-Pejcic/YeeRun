@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/routname_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insert rout name" />
+
+    <Button
+        android:id="@+id/startlocation_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert starting location" />
+
+    <Button
+        android:id="@+id/endlocation_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert ending location" />
+
+    <Button
+        android:id="@+id/done_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Done" />
+</LinearLayout>
