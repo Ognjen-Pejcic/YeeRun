@@ -1,9 +1,11 @@
 package com.example.yeerun;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.ColorMatrixColorFilter;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.MotionEvent;
@@ -57,26 +59,26 @@ public class MainActivity extends AppCompatActivity {
         listView3.setAdapter(arrayAdapter3);
 
         final Button button1 = (Button) findViewById(R.id.button1);
-        button1.setBackgroundColor(Color.MAGENTA);
+        button1.setBackgroundColor(Color.parseColor("#ccff00"));
         button1.setTextColor(Color.WHITE);
 
         final Button button2 = (Button) findViewById(R.id.button2);
-        button2.setBackgroundColor(Color.BLACK);
+        button2.setBackgroundColor(Color.TRANSPARENT);
         button2.setTextColor(Color.WHITE);
 
         button1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                button1.setBackgroundColor(Color.MAGENTA);
-                button2.setBackgroundColor(Color.BLACK);
+                button1.setBackgroundColor(Color.parseColor("#ccff00"));
+                button2.setBackgroundColor(Color.TRANSPARENT);
                 return false;
             }
         });
         button2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                button2.setBackgroundColor(Color.MAGENTA);
-                button1.setBackgroundColor(Color.BLACK);
+                button2.setBackgroundColor(Color.parseColor("#ccff00"));
+                button1.setBackgroundColor(Color.TRANSPARENT);
                 return false;
             }
         });
