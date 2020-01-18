@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -123,6 +124,26 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        Spinner spinner = (Spinner) this.findViewById(R.id.spinner);
+        List<String> spinnerList = new ArrayList<String>();
+        spinnerList.add("Name A-Z");
+        spinnerList.add("Name Z-A");
+        spinnerList.add("Length longest");
+        spinnerList.add("Length shortest");
+        spinnerList.add("Time longest");
+        spinnerList.add("Time shortest");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>  (this,R.layout.spinner_item, spinnerList);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
+        spinner.setAdapter(dataAdapter);
+
+
+
+
+
+
+
     }
 
     private void openActivityRouts(){
