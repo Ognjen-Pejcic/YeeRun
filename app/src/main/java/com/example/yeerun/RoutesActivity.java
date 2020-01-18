@@ -17,18 +17,18 @@ public class RoutesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_routes);
 
         final Button button1 = (Button) findViewById(R.id.button1);
-        button1.setBackgroundColor(Color.MAGENTA);
+        button1.setBackgroundColor(Color.TRANSPARENT);
         button1.setTextColor(Color.WHITE);
 
         final Button button2 = (Button) findViewById(R.id.button2);
-        button2.setBackgroundColor(Color.BLACK);
+        button2.setBackgroundColor(Color.parseColor("#ccff00"));
         button2.setTextColor(Color.WHITE);
 
         button1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                button1.setBackgroundColor(Color.MAGENTA);
-                button2.setBackgroundColor(Color.BLACK);
+                button1.setBackgroundColor(Color.parseColor("#ccff00"));
+                button2.setBackgroundColor(Color.TRANSPARENT);
 
                 return false;
             }
@@ -43,8 +43,8 @@ public class RoutesActivity extends AppCompatActivity {
         button2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                button2.setBackgroundColor(Color.MAGENTA);
-                button1.setBackgroundColor(Color.BLACK);
+                button2.setBackgroundColor(Color.parseColor("#ccff00"));
+                button1.setBackgroundColor(Color.TRANSPARENT);
                 return false;
             }
         });
