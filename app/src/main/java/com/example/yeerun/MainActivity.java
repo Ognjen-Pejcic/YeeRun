@@ -3,6 +3,7 @@ package com.example.yeerun;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
@@ -69,7 +70,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 button1.setBackgroundColor(Color.MAGENTA);
                 button2.setBackgroundColor(Color.BLACK);
+
                 return false;
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityRouts();
             }
         });
         button2.setOnTouchListener(new View.OnTouchListener() {
@@ -80,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
 
-
-
-
+    private void openActivityRouts(){
+        Intent intent = new Intent(this,RoutesActivity.class);
+        startActivity(intent);
     }
 }
