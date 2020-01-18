@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="520dp"
-        android:layout_height="400dp"
+        android:layout_height="500dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -24,17 +24,17 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="250dp"
-            android:layout_height="400dp" />
+            android:layout_height="match_parent" />
 
         <ListView
             android:id="@+id/listView2"
             android:layout_width="100dp"
-            android:layout_height="400dp" />
+            android:layout_height="match_parent" />
 
         <ListView
             android:id="@+id/listView3"
             android:layout_width="100dp"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:layout_marginEnd="316dp"
             android:layout_marginRight="316dp" />
     </LinearLayout>
@@ -85,7 +85,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Accomplished routes"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout

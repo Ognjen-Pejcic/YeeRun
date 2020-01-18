@@ -50,7 +50,73 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Choose a route:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="520dp"
+        android:layout_height="500dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <ListView
+            android:id="@+id/listViewID"
+            android:layout_width="70dp"
+            android:layout_height="match_parent" />
+
+        <ListView
+            android:id="@+id/listViewName"
+            android:layout_width="450dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="520dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <ListView
+            android:id="@+id/headerID"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="#ccff00" />
+
+        <ListView
+            android:id="@+id/headerName"
+            android:layout_width="450dp"
+            android:layout_height="match_parent"
+            android:background="#ccff00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="817dp">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addNew"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:background="#ccff00"
+        android:text="Add new"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

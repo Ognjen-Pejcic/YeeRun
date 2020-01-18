@@ -7,7 +7,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class RoutesActivity extends AppCompatActivity {
 
@@ -15,6 +20,39 @@ public class RoutesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routes);
+
+        LinkedList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
+        ArrayList<String> id= new ArrayList<>();
+        ArrayList<String> names= new ArrayList<>();
+        for(int i = 0; i<routes.size(); i++) {
+            id.add("#" + (i + 1));
+            names.add(routes.get(i).getName()+" (" + routes.get(i).getLength() + "km)");
+        }
+
+        ListView listViewNum= (ListView) findViewById(R.id.listViewID);
+        final ArrayAdapter<String> arrayAdapterNum = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, id);
+        listViewNum.setAdapter(arrayAdapterNum);
+
+        ListView listView= (ListView) findViewById(R.id.listViewName);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, names);
+        listView.setAdapter(arrayAdapter);
+
+        ListView header1 = (ListView) findViewById(R.id.headerID);
+        ListView header2 = (ListView) findViewById(R.id.headerName);
+        ArrayList<String> header1Text= new ArrayList<>();
+        header1Text.add("ID");
+        final ArrayAdapter<String> headerAdapter1 = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, header1Text);
+        header1.setAdapter(headerAdapter1);
+        ArrayList<String> header2Text= new ArrayList<>();
+        header2Text.add("Name");
+        final ArrayAdapter<String> headerAdapter2 = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, header2Text);
+        header2.setAdapter(headerAdapter2);
+
+
 
         final Button button1 = (Button) findViewById(R.id.button1);
         button1.setBackgroundColor(Color.TRANSPARENT);
@@ -48,6 +86,20 @@ public class RoutesActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        Button addNew = (Button)findViewById(R.id.addNew);
+        addNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityMap();
+            }
+        });
+
+    }
+
+    private void openActivityMap() {
+        Intent intent = new Intent(this,MapsActivity.class);
+        startActivity(intent);
     }
 
     private void openActivityStats(){
