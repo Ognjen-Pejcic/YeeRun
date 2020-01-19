@@ -1,6 +1,11 @@
 package com.example.yeerun;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.provider.ContactsContract;
+
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -47,8 +52,13 @@ public class DatabaseService {
 
 
         try{
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+//            if (ContextCompat.checkSelfPermission(, Manifest.permission.WRITE_CALENDAR)
+//                    != PackageManager.PERMISSION_GRANTED) {
+//                // Permission is not granted
+//            }
+            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
             File file = new File(path, "/" + "routs.out");
+            System.out.println("KREIRANO!");
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
             for (Rout r:routes) {
                 out.writeObject(r);
@@ -57,6 +67,7 @@ public class DatabaseService {
             out.close();
         } catch(IOException e){
             System.out.println("Error: " + e.getMessage());
+            System.out.println("NIJE");
         }
     }
 
