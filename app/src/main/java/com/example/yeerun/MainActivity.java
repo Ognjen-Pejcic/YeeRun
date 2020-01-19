@@ -53,19 +53,14 @@ public class MainActivity extends AppCompatActivity {
         }else{
             requestStoragePermission();
         }
-<<<<<<< HEAD
         ListView mlistview=(ListView) findViewById(R.id.listView4);
         DatabaseService.getDatabaseService().makeFileWithRoutes();
-        ArrayList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
-=======
-
         //DatabaseService.getDatabaseService().makeFileWithRoutes();
-        LinkedList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
+        ArrayList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
         ArrayList<String> id= new ArrayList<>();
         ArrayList<String> names= new ArrayList<>();
         ArrayList<String> lengths= new ArrayList<>();
         ArrayList<String> times= new ArrayList<>();
->>>>>>> 6056b11c9b21513a648a87dbac68ef2ae4338cde
 
         RoutesListAdapter adapter = new RoutesListAdapter(this,R.layout.adapter_view_layout,routes);
         mlistview.setAdapter(adapter);

@@ -35,23 +35,23 @@ public class DatabaseService {
         Rout r1 = new Rout("Avala", 5.2, "20:35");
         Rout r2 = new Rout("Ada", 7.0, "24:54");
         Rout r3 = new Rout("Banjicka suma", 3.2, "13:25");
-//        Rout r4 = new Rout("Zemunski kej", 6.4, "25:23");
-//        Rout r5 = new Rout("Avala2", 10.0, "40:25");
-//        Rout r6 = new Rout("Kosutnjak", 6.2, "20:32");
-//        Rout r7 = new Rout("Ruzveltova", 3.2, "7:33");
-//        Rout r8 = new Rout("Kalemegdan", 2.5, "6:42");
-//        Rout r9 = new Rout("Kej", 9.3, "32:31");
-//        Rout r10 = new Rout("Savamala", 4.2, "15:52");
+        Rout r4 = new Rout("Zemunski kej", 6.4, "25:23");
+        Rout r5 = new Rout("Avala2", 10.0, "40:25");
+        Rout r6 = new Rout("Kosutnjak", 6.2, "20:32");
+        Rout r7 = new Rout("Ruzveltova", 3.2, "7:33");
+        Rout r8 = new Rout("Kalemegdan", 2.5, "6:42");
+        Rout r9 = new Rout("Kej", 9.3, "32:31");
+        Rout r10 = new Rout("Savamala", 4.2, "15:52");
         routes.add(r1);
         routes.add(r2);
         routes.add(r3);
-//        routes.add(r4);
-//        routes.add(r5);
-//        routes.add(r6);
-//        routes.add(r7);
-//        routes.add(r8);
-//        routes.add(r9);
-//        routes.add(r10);
+        routes.add(r4);
+        routes.add(r5);
+        routes.add(r6);
+        routes.add(r7);
+        routes.add(r8);
+        routes.add(r9);
+        routes.add(r10);
 
 
         try{
@@ -71,7 +71,7 @@ public class DatabaseService {
 
     public void addRoute(String name, double length, String time, LatLng start, LatLng end){
         Rout r = new Rout(name, length, time, start, end);
-        LinkedList<Rout> routes = loadRoutes();
+        ArrayList<Rout> routes = loadRoutes();
         routes.add(r);
         for (Rout k: routes) {
             System.out.println(k.getName() + k.getLength());
