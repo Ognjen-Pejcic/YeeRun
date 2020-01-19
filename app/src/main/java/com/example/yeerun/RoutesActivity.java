@@ -21,7 +21,7 @@ public class RoutesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routes);
 
-        LinkedList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
+        ArrayList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
         ArrayList<String> id= new ArrayList<>();
         ArrayList<String> names= new ArrayList<>();
         for(int i = 0; i<routes.size(); i++) {

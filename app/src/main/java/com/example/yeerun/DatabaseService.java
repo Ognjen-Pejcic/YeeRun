@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -68,8 +69,8 @@ public class DatabaseService {
         }
     }
 
-    public LinkedList<Rout> loadRoutes(){
-        LinkedList<Rout> routes = new LinkedList<>();
+    public ArrayList<Rout> loadRoutes(){
+        ArrayList<Rout> routes = new ArrayList<>();
         try{
             File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             File file = new File(path, "/" + "routs.out");
