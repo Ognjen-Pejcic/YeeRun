@@ -7,39 +7,6 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="520dp"
-        android:layout_height="500dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-        <ListView
-            android:id="@+id/listViewNum"
-            android:layout_width="70dp"
-            android:layout_height="match_parent" />
-
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="250dp"
-            android:layout_height="match_parent" />
-
-        <ListView
-            android:id="@+id/listView2"
-            android:layout_width="100dp"
-            android:layout_height="match_parent" />
-
-        <ListView
-            android:id="@+id/listView3"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="316dp"
-            android:layout_marginRight="316dp" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -90,41 +57,6 @@
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="520dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <ListView
-            android:id="@+id/header1"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:background="#ccff00" />
-
-        <ListView
-            android:id="@+id/header2"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:background="#ccff00" />
-
-        <ListView
-            android:id="@+id/header3"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="#ccff00" />
-
-        <ListView
-            android:id="@+id/header4"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="#ccff00" />
-    </LinearLayout>
-
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="200dp"
@@ -136,13 +68,39 @@
         android:id="@+id/textViewSortBy"
         android:layout_width="520dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Sort by:"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        tools:layout_editor_absoluteY="840dp" />
+
+    <TableLayout
+        android:layout_width="798dp"
+        android:layout_height="601dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSortBy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

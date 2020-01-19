@@ -52,11 +52,8 @@ public class DatabaseService {
 
 
         try{
-//            if (ContextCompat.checkSelfPermission(, Manifest.permission.WRITE_CALENDAR)
-//                    != PackageManager.PERMISSION_GRANTED) {
-//                // Permission is not granted
-//            }
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
+
+            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             File file = new File(path, "/" + "routs.out");
             System.out.println("KREIRANO!");
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
@@ -90,5 +87,4 @@ public class DatabaseService {
         }
         return routes;
     }
-
 }
