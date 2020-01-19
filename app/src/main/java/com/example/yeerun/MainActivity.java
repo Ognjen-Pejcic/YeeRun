@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             requestStoragePermission();
         }
 
-        DatabaseService.getDatabaseService().makeFileWithRoutes();
+        //DatabaseService.getDatabaseService().makeFileWithRoutes();
         LinkedList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
         ArrayList<String> id= new ArrayList<>();
         ArrayList<String> names= new ArrayList<>();

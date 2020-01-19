@@ -1,15 +1,31 @@
 package com.example.yeerun;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.Serializable;
 
 public class Rout implements Serializable {
     private String name;
     private double length;
     private String time;
-    private double startX;
-    private double startY;
-    private double endX;
-    private double endY;
+    private LatLng start;
+    private LatLng end;
+
+    public LatLng getStart() {
+        return start;
+    }
+
+    public void setStart(LatLng start) {
+        this.start = start;
+    }
+
+    public LatLng getEnd() {
+        return end;
+    }
+
+    public void setEnd(LatLng end) {
+        this.end = end;
+    }
 
     public String getName() {
         return name;
@@ -35,37 +51,6 @@ public class Rout implements Serializable {
         this.time = time;
     }
 
-    public double getStartX() {
-        return startX;
-    }
-
-    public void setStartX(double startX) {
-        this.startX = startX;
-    }
-
-    public double getStartY() {
-        return startY;
-    }
-
-    public void setStartY(double startY) {
-        this.startY = startY;
-    }
-
-    public double getEndX() {
-        return endX;
-    }
-
-    public void setEndX(double endX) {
-        this.endX = endX;
-    }
-
-    public double getEndY() {
-        return endY;
-    }
-
-    public void setEndY(double endY) {
-        this.endY = endY;
-    }
 
     public Rout(String name, double length, String time) {
         this.name = name;
@@ -73,14 +58,12 @@ public class Rout implements Serializable {
         this.time = time;
     }
 
-    public Rout(String name, double length, String time, double startX, double startY, double endX, double endY) {
+    public Rout(String name, double length, String time, LatLng start, LatLng end) {
         this.name = name;
         this.length = length;
         this.time = time;
-        this.startX = startX;
-        this.startY = startY;
-        this.endX = endX;
-        this.endY = endY;
+        this.start = start;
+        this.end = end;
     }
 
 }
