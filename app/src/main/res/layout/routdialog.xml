@@ -15,17 +15,17 @@
         android:id="@+id/startlocation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insert starting location" />
+        android:text="START" />
 
     <Button
         android:id="@+id/endlocation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Insert ending location" />
+        android:text="FINISH" />
 
     <Button
         android:id="@+id/done_button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Done" />
+        android:text="Add" />
 </LinearLayout>
