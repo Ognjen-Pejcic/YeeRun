@@ -1,8 +1,19 @@
 package com.example.yeerun;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -20,7 +31,8 @@ public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCal
     LatLng myPosition;
     String name;
     TextView textView;
-
+    LocationManager locationManager;
+    LocationListener locationListener;
 
 
     @Override
@@ -55,12 +67,80 @@ public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        getLocation();
+
+
+
+        LatLng location = new LatLng(44, 22);
+        mMap.addMarker(new MarkerOptions().position(location).title("Last known location."));
         mMap.addMarker(new MarkerOptions().position(start).title("START"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(start));
         mMap.addMarker(new MarkerOptions().title("FINISH").position(end));
         textView.setText(name);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
 
+        Button locationBtn = (Button)findViewById(R.id.locationBtn);
+        Button startBtn = (Button)findViewById(R.id.startBtn);
+        locationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLocation();
+            }
+        });
+
+
+    }
+
+    private void getLocation() {
+        Intent intent = getIntent();
+        if (intent.getIntExtra("Place Number",0) == 0 ){
+
+            // Zoom into users location
+            locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+            locationListener = new LocationListener() {
+                @Override
+                public void onLocationChanged(Location location) {
+                    centreMapOnLocation(location,"Your Location");
+                }
+
+                @Override
+                public void onStatusChanged(String s, int i, Bundle bundle) {
+
+                }
+
+                @Override
+                public void onProviderEnabled(String s) {
+
+                }
+
+                @Override
+                public void onProviderDisabled(String s) {
+
+                }
+            };
+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+                Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                centreMapOnLocation(lastKnownLocation,"Your Location");
+                mMap.addMarker(new MarkerOptions().position(start).title("START"));
+                mMap.addMarker(new MarkerOptions().title("FINISH").position(end));
+
+            } else {
+
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+            }
+        }
+    }
+
+    public void centreMapOnLocation(Location location, String title){
+        if(location!=null) {
+            LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions().position(userLocation).title(title));
+            mMap.addMarker(new MarkerOptions().position(start).title("START"));
+            mMap.addMarker(new MarkerOptions().title("FINISH").position(end));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 12));
+        }
 
     }
 }
