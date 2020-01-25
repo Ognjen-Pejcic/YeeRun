@@ -2,4 +2,5 @@
     <string name="app_name">YeeRun</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_map_route">Map</string>
+    <string name="title_activity_show_route">Map</string>
 </resources>

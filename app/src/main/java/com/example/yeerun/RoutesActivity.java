@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -40,7 +41,7 @@ public class RoutesActivity extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
 
 //        ListView header1 = (ListView) findViewById(R.id.headerID);
-//        ListView header2 = (ListView) findViewById(R.id.headerName);
+        ListView header2 = (ListView) findViewById(R.id.headerName);
 //        ArrayList<String> header1Text= new ArrayList<>();
 //        header1Text.add("ID");
 //        final ArrayAdapter<String> headerAdapter1 = new ArrayAdapter<String>
@@ -50,7 +51,23 @@ public class RoutesActivity extends AppCompatActivity {
         header2Text.add("Name");
         final ArrayAdapter<String> headerAdapter2 = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, header2Text);
-//        header2.setAdapter(headerAdapter2);
+        header2.setAdapter(headerAdapter2);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Rout r = null;
+
+                ArrayList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
+                for(int i = 0; i<routes.size(); i++){
+                    if(i==position){
+                        r = routes.get(i);
+                    }
+                }
+                System.out.println("Item clicked: " + position + " " + r.getName() + r.getStartX() + " " + r.getEndX());
+                openActivityShowMap(r);
+            }
+        });
 
 
 
@@ -95,6 +112,16 @@ public class RoutesActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void openActivityShowMap(Rout r) {
+        System.out.println("Name: " + r.getName());
+        System.out.println("Start latitude = " + r.getStartX() + "Start longitude = " + r.getStartY());
+        System.out.println("End latitude = " + r.getEndX() + "End longitude = " + r.getEndY());
+        String text = r.getName() + "///" + r.getStartX() + "///" + r.getStartY() + "///" + r.getEndX() + "///" + r.getEndY();
+        Intent intent = new Intent(this,ShowRouteActivity.class);
+        intent.putExtra("ROUTE", text);
+        startActivity(intent);
     }
 
     private void openActivityMap() {
