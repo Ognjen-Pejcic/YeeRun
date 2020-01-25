@@ -23,6 +23,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.w3c.dom.Text;
+
+
 public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -33,6 +36,8 @@ public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCal
     TextView textView;
     LocationManager locationManager;
     LocationListener locationListener;
+    String time;
+    TextView textView2;
 
 
     @Override
@@ -51,6 +56,7 @@ public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCal
         end = new LatLng(Double.parseDouble(info[3]), Double.parseDouble(info[4]));
         System.out.println(start.latitude + " " + start.longitude);
         textView = (TextView)findViewById(R.id.textView);
+
     }
 
 
@@ -70,24 +76,48 @@ public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCal
         getLocation();
 
 
-
+        mMap.setMyLocationEnabled(true);
         LatLng location = new LatLng(44, 22);
         mMap.addMarker(new MarkerOptions().position(location).title("Last known location."));
         mMap.addMarker(new MarkerOptions().position(start).title("START"));
         mMap.addMarker(new MarkerOptions().title("FINISH").position(end));
         textView.setText(name);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-
+        textView2 = (TextView)findViewById(R.id.textView2);
         Button locationBtn = (Button)findViewById(R.id.locationBtn);
         Button startBtn = (Button)findViewById(R.id.startBtn);
+        final StopWatch s = new StopWatch();
         locationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getLocation();
+                //getLocation();
+                s.stopThread();
+            }
+        });
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                s.startThread();
+
+                while (true)
+                {
+                    int[] curTime = s.getTime();
+                    //System.out.println(curTime[0] + " : " + curTime[1] + " : " + curTime[2] + " : " + curTime[3]);
+                    time ="Time: " + curTime[1] + ":" + curTime[2];
+                    changeTime(time);
+                }
             }
         });
 
 
+
+    }
+
+    private void changeTime(String time) {
+        System.out.println(time);
+        textView2.setText(time);
     }
 
     private void getLocation() {
