@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             requestStoragePermission();
         }
         ListView mlistview=(ListView) findViewById(R.id.listView4);
-        DatabaseService.getDatabaseService().makeFileWithRoutes();
         //DatabaseService.getDatabaseService().makeFileWithRoutes();
         ArrayList<Rout> routes = DatabaseService.getDatabaseService().loadRoutes();
         ArrayList<String> id= new ArrayList<>();

@@ -29,28 +29,28 @@ public class RoutesActivity extends AppCompatActivity {
             names.add(routes.get(i).getName()+" (" + routes.get(i).getLength() + "km)");
         }
 
-        ListView listViewNum= (ListView) findViewById(R.id.listViewID);
-        final ArrayAdapter<String> arrayAdapterNum = new ArrayAdapter<String>
-                (this, android.R.layout.simple_list_item_1, id);
-        listViewNum.setAdapter(arrayAdapterNum);
+//        ListView listViewNum= (ListView) findViewById(R.id.listViewID);
+//        final ArrayAdapter<String> arrayAdapterNum = new ArrayAdapter<String>
+//                (this, android.R.layout.simple_list_item_1, id);
+//        listViewNum.setAdapter(arrayAdapterNum);
 
         ListView listView= (ListView) findViewById(R.id.listViewName);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, names);
         listView.setAdapter(arrayAdapter);
 
-        ListView header1 = (ListView) findViewById(R.id.headerID);
-        ListView header2 = (ListView) findViewById(R.id.headerName);
-        ArrayList<String> header1Text= new ArrayList<>();
-        header1Text.add("ID");
-        final ArrayAdapter<String> headerAdapter1 = new ArrayAdapter<String>
-                (this, android.R.layout.simple_list_item_1, header1Text);
-        header1.setAdapter(headerAdapter1);
+//        ListView header1 = (ListView) findViewById(R.id.headerID);
+//        ListView header2 = (ListView) findViewById(R.id.headerName);
+//        ArrayList<String> header1Text= new ArrayList<>();
+//        header1Text.add("ID");
+//        final ArrayAdapter<String> headerAdapter1 = new ArrayAdapter<String>
+//                (this, android.R.layout.simple_list_item_1, header1Text);
+//        header1.setAdapter(headerAdapter1);
         ArrayList<String> header2Text= new ArrayList<>();
         header2Text.add("Name");
         final ArrayAdapter<String> headerAdapter2 = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, header2Text);
-        header2.setAdapter(headerAdapter2);
+//        header2.setAdapter(headerAdapter2);
 
 
 

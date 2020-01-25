@@ -47,7 +47,7 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:text="Choose a route:"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -56,17 +56,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="520dp"
+        android:layout_width="300dp"
         android:layout_height="300dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-        <ListView
-            android:id="@+id/listViewID"
-            android:layout_width="70dp"
-            android:layout_height="match_parent" />
 
         <ListView
             android:id="@+id/listViewName"
@@ -76,19 +71,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="520dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="70dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <ListView
-            android:id="@+id/headerID"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:background="#ccff00" />
 
         <ListView
             android:id="@+id/headerName"
