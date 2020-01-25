@@ -55,11 +55,10 @@ public class MapRouteActivity extends FragmentActivity implements OnMapReadyCall
 
         // Add a marker in Sydney and move the camera
 //        LatLng yourLocation = new LatLng(myPosition.latitude, myPosition.longitude);
-        mMap.addMarker(new MarkerOptions().position(start).title("My location"));
+        mMap.addMarker(new MarkerOptions().position(start).title("START"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(start));
-        mMap.addMarker(new MarkerOptions().title("START").position(start));
         mMap.addMarker(new MarkerOptions().title("FINISH").position(end));
-        DatabaseService.getDatabaseService().addRoute(name,5.0, "15:00", start, end);
+        DatabaseService.getDatabaseService().addRoute(name,5.0, "15:00", start.latitude, start.longitude, end.latitude, end.longitude);
     }
 
     public void showToast(String text){

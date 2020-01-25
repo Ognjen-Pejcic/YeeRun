@@ -8,24 +8,11 @@ public class Rout implements Serializable {
     private String name;
     private double length;
     private String time;
-    private LatLng start;
-    private LatLng end;
+    private double startX;
+    private double startY;
+    private double endX;
+    private double endY;
 
-    public LatLng getStart() {
-        return start;
-    }
-
-    public void setStart(LatLng start) {
-        this.start = start;
-    }
-
-    public LatLng getEnd() {
-        return end;
-    }
-
-    public void setEnd(LatLng end) {
-        this.end = end;
-    }
 
     public String getName() {
         return name;
@@ -58,12 +45,14 @@ public class Rout implements Serializable {
         this.time = time;
     }
 
-    public Rout(String name, double length, String time, LatLng start, LatLng end) {
+    public Rout(String name, double length, String time, double startX, double startY, double endX, double endY) {
         this.name = name;
         this.length = length;
         this.time = time;
-        this.start = start;
-        this.end = end;
+        this.startX = startX;
+        this.startY = startY;
+        this.endX = endX;
+        this.endY = endY;
     }
 
 }

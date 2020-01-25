@@ -167,6 +167,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onClick(View v) {
 
                     alertDialog.hide();
+                    showToastMiddle("Tap on screen for START location!");
 
                     mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                         @Override
@@ -182,6 +183,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View v) {
 
                 alertDialog.hide();
+                showToastMiddle("Tap on screen for FINISH location!");
 
                 mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                     @Override
@@ -190,6 +192,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         alertDialog.show();
                     }
                 });
+
             }
         });
         btn_done.setOnClickListener(new View.OnClickListener() {
@@ -216,4 +219,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().title("START").position(start));
         mMap.addMarker(new MarkerOptions().title("FINISH").position(end));
     }
+
+    public void showToastMiddle(String text){
+        Toast.makeText(this, text,Toast.LENGTH_LONG).show();
+    }
+
 }

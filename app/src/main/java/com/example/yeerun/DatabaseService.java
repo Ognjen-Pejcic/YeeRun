@@ -69,10 +69,11 @@ public class DatabaseService {
         }
     }
 
-    public void addRoute(String name, double length, String time, LatLng start, LatLng end){
-        Rout r = new Rout(name, length, time, start, end);
+    public void addRoute(String name, double length, String time, double startX, double startY, double endX, double endY){
+        Rout r = new Rout(name, length, time, startX, startY, endX, endY);
         ArrayList<Rout> routes = loadRoutes();
         routes.add(r);
+        System.out.println("ADDED:" + r.getName() + r.getLength() + r.getTime());
         for (Rout k: routes) {
             System.out.println(k.getName() + k.getLength());
         }
@@ -84,6 +85,7 @@ public class DatabaseService {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
             for (Rout p:routes) {
                 out.writeObject(p);
+                System.out.println(p.getName());
             }
             out.flush();
             out.close();
@@ -102,7 +104,7 @@ public class DatabaseService {
             try{
                 while(true){
                     Rout r = (Rout)(in.readObject());
-                    //System.out.println(r.getName());
+                    System.out.println(r.getName());
                     routes.add(r);
                 }
             } catch(Exception e){}
