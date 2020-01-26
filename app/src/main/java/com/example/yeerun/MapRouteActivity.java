@@ -79,7 +79,7 @@ public class MapRouteActivity extends FragmentActivity implements OnMapReadyCall
         DatabaseService.getDatabaseService().addRoute(name,0.0, "00:00", start.latitude, start.longitude, end.latitude, end.longitude);
 
         mMap.setMyLocationEnabled(true);
-        mMap.addPolyline(new PolylineOptions().add(start,end).width(10).color(Color.CYAN));
+        mMap.addPolyline(new PolylineOptions().add(start,end).width(10).color(Color.parseColor("#ccff00")));
     }
 
     public void showToast(String text){

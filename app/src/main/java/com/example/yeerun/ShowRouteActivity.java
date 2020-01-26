@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -22,6 +23,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.w3c.dom.Text;
 
@@ -82,7 +84,7 @@ public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCal
         mMap.addMarker(new MarkerOptions().title("FINISH").position(end));
         textView.setText(name);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-        textView2 = (TextView)findViewById(R.id.textView2);
+        //textView2 = (TextView)findViewById(R.id.textView2);
         //Button locationBtn = (Button)findViewById(R.id.locationBtn);
         Button startBtn = (Button)findViewById(R.id.startBtn);
         final StopWatch s = new StopWatch();
@@ -97,7 +99,7 @@ public class ShowRouteActivity extends FragmentActivity implements OnMapReadyCal
             @Override
             public void onClick(View v) {
 
-
+                mMap.addPolyline(new PolylineOptions().add(start,end).width(10).color(Color.parseColor("#ccff00")));
 //                s.startThread();
 //
 //                while (true)

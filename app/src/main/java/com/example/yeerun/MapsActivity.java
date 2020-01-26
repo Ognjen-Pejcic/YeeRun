@@ -92,48 +92,49 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        Intent intent = getIntent();
-        if (intent.getIntExtra("Place Number",0) == 0 ){
-
-            // Zoom into users location
-            locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
-            locationListener = new LocationListener() {
-                @Override
-                public void onLocationChanged(Location location) {
-                    centreMapOnLocation(location,"Your Location");
-                }
-
-                @Override
-                public void onStatusChanged(String s, int i, Bundle bundle) {
-
-                }
-
-                @Override
-                public void onProviderEnabled(String s) {
-
-                }
-
-                @Override
-                public void onProviderDisabled(String s) {
-
-                }
-            };
-
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
-                Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                centreMapOnLocation(lastKnownLocation,"Your Location");
-            } else {
-
-                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
-            }
-        }
+//        Intent intent = getIntent();
+//        if (intent.getIntExtra("Place Number",0) == 0 ){
+//
+//            // Zoom into users location
+//            locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+//            locationListener = new LocationListener() {
+//                @Override
+//                public void onLocationChanged(Location location) {
+//                    centreMapOnLocation(location,"Your Location");
+//                }
+//
+//                @Override
+//                public void onStatusChanged(String s, int i, Bundle bundle) {
+//
+//                }
+//
+//                @Override
+//                public void onProviderEnabled(String s) {
+//
+//                }
+//
+//                @Override
+//                public void onProviderDisabled(String s) {
+//
+//                }
+//            };
+//
+//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+//                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+//                Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//                centreMapOnLocation(lastKnownLocation,"Your Location");
+//            } else {
+//
+//                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+//            }
+//        }
 
         // Add a marker in Sydney and move the camera
 
-        LatLng location = new LatLng(44, 22);
-        mMap.addMarker(new MarkerOptions().position(location).title("Last known location."));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+        //LatLng location = new LatLng(44, 22);
+        //mMap.addMarker(new MarkerOptions().position(location).title("Last known location."));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+        mMap.setMyLocationEnabled(true);
         plusButton = findViewById(R.id.plusButton);
         plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
