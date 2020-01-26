@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal|top"
-        android:layout_marginTop="50px"
+        android:layout_marginTop="100px"
         android:text="Time: 00:00"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#000000" />
@@ -41,15 +41,15 @@
             android:text="START"
             android:textColor="#282828"
             android:textSize="16sp" />
-        <Button
-            android:id="@+id/locationBtn"
-            android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:background="#ccff00"
-            android:text="Check my location"
-            android:textColor="#282828"
-            android:textSize="16sp" />
+<!--        <Button-->
+<!--            android:id="@+id/locationBtn"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="70dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="#ccff00"-->
+<!--            android:text="Check my location"-->
+<!--            android:textColor="#282828"-->
+<!--            android:textSize="16sp" />-->
 </LinearLayout>
 
 </fragment>
