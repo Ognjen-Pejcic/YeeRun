@@ -3,8 +3,14 @@ package com.example.yeerun;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
+import java.util.List;
+
+import Modules.Distance;
+import Modules.Duration;
 
 public class Rout implements Serializable {
+    public Distance distance;
+    public Duration duration;
     private String name;
     private double length;
     private String time;
@@ -12,7 +18,11 @@ public class Rout implements Serializable {
     private double startY;
     private double endX;
     private double endY;
-
+    public List<LatLng> points;
+    public String endAddress;
+    public LatLng endLocation;
+    public String startAddress;
+    public LatLng startLocation;
 
     public String getName() {
         return name;
@@ -84,6 +94,10 @@ public class Rout implements Serializable {
         this.startY = startY;
         this.endX = endX;
         this.endY = endY;
+    }
+
+    public Rout(){
+
     }
 
 }
