@@ -64,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         RoutesListAdapter adapter = new RoutesListAdapter(this,R.layout.adapter_view_layout,routes);
         mlistview.setAdapter(adapter);
 
+        ListView header2 = (ListView) findViewById(R.id.headerName);
+        ArrayList<String> header2Text= new ArrayList<>();
+        header2Text.add("Name");
+        final ArrayAdapter<String> headerAdapter2 = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, header2Text);
+        header2.setAdapter(headerAdapter2);
+
         final Button button1 = (Button) findViewById(R.id.button1);
         button1.setBackgroundColor(Color.parseColor("#ccff00"));
         button1.setTextColor(Color.WHITE);

@@ -41,22 +41,22 @@
         android:id="@+id/spinner"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSortBy"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSortBy" />
 
     <TextView
         android:id="@+id/textViewSortBy"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:gravity="center"
         android:text="Sort by:"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView4" />
 
@@ -65,10 +65,10 @@
         android:layout_width="300dp"
         android:layout_height="350dp"
         android:layout_below="@+id/linearLayout2"
-        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/headerName" />
 
     <TextView
         android:id="@+id/textView4"
@@ -81,6 +81,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <ListView
+        android:id="@+id/headerName"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#ccff00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
